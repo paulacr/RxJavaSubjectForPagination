@@ -1,6 +1,7 @@
 package net.paulacr.rxjavastudies
 
-import rx.Observable
+import io.reactivex.Observable
+
 
 class Repository {
 

@@ -27,7 +27,7 @@ class Presenter(val viewInterface: ViewInterface) {
         subject.subscribe { page ->
 
             Log.i(TAG, "subscribe subject called")
-            repository.getMovies(page.toString()).subscribe {
+            getMoviesInstance(page).subscribe {
                 Log.i(TAG, "result: $it")
                 //show movies on view ex: view.showMovies(it)
             }
@@ -51,6 +51,10 @@ class Presenter(val viewInterface: ViewInterface) {
 //        observable.subscribe {
 //            Log.i(TAG, "subcribing to observable")
 //        }
+    }
+
+    fun getMoviesInstance(page : Int): Observable<String> {
+        return repository.getMovies(page.toString())
     }
 
 
